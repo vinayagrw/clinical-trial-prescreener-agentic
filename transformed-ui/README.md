@@ -1,27 +1,44 @@
-# CTP Trial Pre-Screener — Transformed UI
+<div align="center">
 
-A coordinator-facing React prototype of a **continuous clinical trial eligibility pre-screener**. Built to show how an 8:30 AM queue review for an oncology research coordinator could move from a 45-minute chart hunt to a 6-minute evidence-backed walkthrough — with every AI recommendation traceable back to a source document.
+# Transformed UI — The Redesign
 
-**Status:** POC / demo. Five pages wired to mock patient data (Angela Brooks, Robert Hale, Diane Foster, Marcus Green) plus **real Claude API calls** in the Ask Agent panel, grounded on the loaded evidence bundle. All non-agent logic is mock.
+**The focused treatment: five pages, one coordinator's 8:30 AM queue review.**
 
-**Audience:** Lena (research coordinator), Dr. Shah (PI), research operations lead, executive sponsor, compliance/IRB reviewer, enterprise IT.
+[![Part of](https://img.shields.io/badge/part%20of-clinical--trial--prescreener-blue)](../README.md)
+[![Pages](https://img.shields.io/badge/pages-5-8A4FFF)](#-feature-tour)
+[![Depends on](https://img.shields.io/badge/depends%20on-sample--ui-E8A33D)](#-architecture-at-a-glance)
+[![Styling](https://img.shields.io/badge/styling-pure%20CSS%20tokens-264de4)](#-architecture-at-a-glance)
+[![Data: synthetic](https://img.shields.io/badge/data-100%25%20synthetic-8A4FFF)](#-whats-real-vs-whats-mock)
 
----
+[🚀 Quick start](#-quick-start) · [🏗 Architecture](#-architecture-at-a-glance) · [✨ Features](#-feature-tour) · [🔍 Real vs mock](#-whats-real-vs-whats-mock) · [🛣 Roadmap](#-making-this-a-real-working-solution--roadmap)
 
-## Table of contents
-
-1. [Quick start](#quick-start)
-2. [Architecture at a glance](#architecture-at-a-glance)
-3. [Feature tour](#feature-tour)
-4. [User stories by persona](#user-stories-by-persona)
-5. [What's real vs what's mock](#whats-real-vs-whats-mock)
-6. [Making this a real working solution — roadmap](#making-this-a-real-working-solution--roadmap)
-7. [Project structure](#project-structure)
-8. [Development notes](#development-notes)
+</div>
 
 ---
 
-## Quick start
+A coordinator-facing React prototype of a **continuous clinical trial eligibility
+pre-screener**. Built to show how an 8:30 AM queue review for an oncology research
+coordinator could move from a 45-minute chart hunt to a 6-minute evidence-backed
+walkthrough — with every AI recommendation traceable back to a source document.
+
+This is the **second** of the two interface treatments in this repository. For the
+feature-dense original and the comparison between them, see the
+[root README](../README.md).
+
+| | |
+|---|---|
+| **Status** | POC / demo. Five pages on mock patient data, plus **real Claude API calls** in the Ask Agent panel grounded on the loaded evidence bundle. All non-agent logic is mock. |
+| **Audience** | Research coordinator, PI, research operations lead, executive sponsor, compliance/IRB reviewer, enterprise IT. |
+| **Demo patients** | Angela Brooks, Robert Hale, Diane Foster, Marcus Green — all fabricated. |
+
+> [!WARNING]
+> **This app does not build on its own.** It imports `sample-ui`'s types and mock data
+> through the `@old` build-time alias. Clone the whole repository, and keep the sibling
+> `sample-ui/` directory in place.
+
+---
+
+## 🚀 Quick start
 
 **Prerequisites**
 - Node.js 22+ (the repo baseline; `sample-ui`'s local API requires it)
@@ -61,7 +78,7 @@ npm run preview    # preview the production build
 
 ---
 
-## Architecture at a glance
+## 🏗 Architecture at a glance
 
 - **React 18.3 + TypeScript 5.6 + Vite 5.4 + react-router-dom 6**
 - **Pure CSS** with CSS custom properties — no Tailwind, no CSS-in-JS (see `src/styles/components.css`)
@@ -83,7 +100,7 @@ Routes:
 
 ---
 
-## Feature tour
+## ✨ Feature tour
 
 Each feature is tagged `REAL` (computed from data or calls a real API), `ANIMATED` (driven animation, mock data), `MOCK` (static hand-authored content), or `SESSION` (kept in React state, resets on reload).
 
@@ -172,7 +189,7 @@ Per-trial protocol management. File: `src/pages/TrialConfigPage.tsx`.
 
 ---
 
-## User stories by persona
+## 👥 User stories by persona
 
 ### Coordinator — Lena Ortiz
 
@@ -222,7 +239,7 @@ Per-trial protocol management. File: `src/pages/TrialConfigPage.tsx`.
 
 ---
 
-## What's real vs what's mock
+## 🔍 What's real vs what's mock
 
 | Capability | Status | Where it lives |
 |---|---|---|
@@ -246,7 +263,12 @@ Per-trial protocol management. File: `src/pages/TrialConfigPage.tsx`.
 
 ---
 
-## Making this a real working solution — roadmap
+## 🛣 Making this a real working solution — roadmap
+
+Ten phases from POC to a validated clinical pilot, with a suggested sequencing at the end.
+
+<details>
+<summary><b>Expand the full 10-phase roadmap</b> — data foundation, EHR connectors, rules engine, rescreening, RBAC, audit, LLM hardening, deployment, validation, UI hardening</summary>
 
 This is a phased gap analysis from "working POC demo" to "production coordinator tool deployed at a cancer center." Each phase names the goal, the key deliverables, and where it plugs into the current code. Phases are roughly ordered by dependency, but several can run in parallel once Phase 1 exists.
 
@@ -382,7 +404,9 @@ A realistic pilot-to-production timeline for a small engineering team (2–3 eng
 
 ---
 
-## Project structure
+</details>
+
+## 📂 Project structure
 
 ```
 transformed-ui/
@@ -424,7 +448,7 @@ transformed-ui/
 
 ---
 
-## Development notes
+## 🔧 Development notes
 
 **Claude API key**
 - Read from `process.env.ANTHROPIC_API_KEY` (or via Vite's `loadEnv`) at dev-server startup.

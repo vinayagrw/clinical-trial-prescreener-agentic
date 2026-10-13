@@ -1,15 +1,36 @@
-# CTP Trial Eligibility Pre-Screener React Sample UI
+<div align="center">
 
-This is the working product README for the React + Vite + TypeScript prototype of the CTP Clinical Trial Eligibility Pre-Screener.
+# Sample UI — Coordinator Workbench
 
-## Current Reality Check
-- See [What Is Real in the Prototype vs What Is Mocked](#what-is-real-in-the-prototype-vs-what-is-mocked) below for the real-vs-mocked assessment and live-data prerequisites by workspace.
-- Short version:
-  - Trial workspace and most of `/ai-features` are still mock-data workflows.
-  - Handoff is a working seeded-data pipeline, not a live EHR deployment.
-  - Research digests are the closest to real data, but still require infrastructure and production hardening.
+**The feature-dense treatment: 14 routes, four workspaces, one oncology screening queue.**
 
-## Purpose and Current Scope
+[![Part of](https://img.shields.io/badge/part%20of-clinical--trial--prescreener-blue)](../README.md)
+[![Routes](https://img.shields.io/badge/routes-14-4a6fa5)](#-routes-and-what-each-screen-does)
+[![Node](https://img.shields.io/badge/Node-%E2%89%A522-339933?logo=node.js&logoColor=white)](#-run)
+[![Charts](https://img.shields.io/badge/charts-visx-FF6B6B)](#-feature-list)
+[![Data: synthetic](https://img.shields.io/badge/data-100%25%20synthetic-8A4FFF)](#-what-is-real-in-the-prototype-vs-what-is-mocked)
+
+[🚀 Run](#-run) · [🗺 Routes](#-routes-and-what-each-screen-does) · [✨ Features](#-feature-list) · [👥 Personas](#-user-stories-by-persona) · [🔍 Real vs mock](#-what-is-real-in-the-prototype-vs-what-is-mocked)
+
+</div>
+
+---
+
+The React + Vite + TypeScript prototype of the CTP Clinical Trial Eligibility Pre-Screener —
+a coordinator-first oncology screening workbench, an SBAR clinical handoff studio, and a
+literature-monitoring digest workspace in one app.
+
+This is the **first** of the two interface treatments in this repository. For the 5-page
+redesign and the comparison between them, see the [root README](../README.md).
+
+> [!NOTE]
+> **Honest status, up front.** The trial workspace and most of `/ai-features` are mock-data
+> workflows. Handoff is a working seeded-data pipeline, not a live EHR deployment. Research
+> digests are the closest to real data, but still need infrastructure and production
+> hardening. The full breakdown is in
+> [What Is Real vs What Is Mocked](#-what-is-real-in-the-prototype-vs-what-is-mocked).
+
+## 🎯 Purpose and Current Scope
 - Demonstrate three read-only clinical or research workspaces in one app: a coordinator-first oncology screening workbench, a clinical handoff studio for SBAR shift summaries, and a literature-monitoring digest workspace for faculty or labs.
 - Show how queue management, criterion review, trust signals, analytics, admin controls, and audit replay fit into one workflow.
 - Keep the original trial eligibility pre-screener as the default home page while exposing the SBAR handoff workspace under `/handoffs`.
@@ -18,7 +39,7 @@ This is the working product README for the React + Vite + TypeScript prototype o
 - Represent the current product direction for one Clinical Trial Pre-Screener oncology queue, 10 to 20 active trials, read-only workflow, and mandatory human review.
 - Use mock data and a mock API layer for the trial workspace, a local backend with seeded retrospective encounters for the handoff workspace, and a Postgres-backed live ingestion pipeline for the research digest workspace.
 
-## Current Scope Guardrails
+## 🚧 Current Scope Guardrails
 - One oncology-first pilot queue.
 - One inpatient handoff pilot workspace backed by retrospective seeded encounter data.
 - One research digest pilot workspace backed by real external publication APIs plus Postgres + pgvector.
@@ -27,7 +48,7 @@ This is the working product README for the React + Vite + TypeScript prototype o
 - Human-reviewed output only.
 - Ask Agent is limited to grounded explanation and internal drafting.
 
-## Routes and What Each Screen Does
+## 🗺 Routes and What Each Screen Does
 | Route | Screen | What it demonstrates |
 | --- | --- | --- |
 | `/` | Default Landing | Redirects to the coordinator cockpit so the original trial workspace remains the default home page. |
@@ -45,7 +66,7 @@ This is the working product README for the React + Vite + TypeScript prototype o
 | `/research-digests/profiles/:profileId` | Research Profile | Faculty or lab configuration for interests, projects, schedule, and source filters. |
 | `/research-digests/digests/:digestId` | Weekly Research Digest | Weekly digest review with method-aware scores, project flags, source quality badges, and citation-backed summaries. |
 
-## Feature List
+## ✨ Feature List
 
 ### Cockpit
 - Queue-first landing experience built around task modes rather than static pages.
@@ -115,7 +136,7 @@ This is the working product README for the React + Vite + TypeScript prototype o
 - Citation-backed paper summaries with explicit abstract-only vs full-text coverage labels.
 - Separate research worker process so publication polling and digest generation do not destabilize the handoff API.
 
-## User Stories by Persona
+## 👥 User Stories by Persona
 
 ### Coordinator
 - As a coordinator, I want the queue to show the next best cases by task mode so I can start with the highest-value work.
@@ -143,7 +164,7 @@ This is the working product README for the React + Vite + TypeScript prototype o
 - As an executive sponsor, I want to see how one case review connects to throughput, false exclusions, and enrollment funnel movement so I can judge business value.
 - As an executive sponsor, I want the product to show clear guardrails around human review, read-only posture, and governance so the pilot remains defensible.
 
-## Core Entities
+## 🧩 Core Entities
 | Entity | Purpose |
 | --- | --- |
 | `Trial` | Current local trial record, activation state, and release scope. |
@@ -160,7 +181,7 @@ This is the working product README for the React + Vite + TypeScript prototype o
 | `RelevanceAssessment` | Weighted, method-aware score linking one publication to one research profile. |
 | `WeeklyDigest` | Persisted digest archive with section structure and paper entries. |
 
-## Target API Endpoints
+## 🔌 Target API Endpoints
 | Method | Path | Purpose |
 | --- | --- | --- |
 | `POST` | `/trials/import` | Import or refresh trial inventory for the pilot scope. |
@@ -187,7 +208,7 @@ This is the working product README for the React + Vite + TypeScript prototype o
 | `GET` | `/api/research/digests/{digestId}` | Return one digest with entries, assessments, and summaries. |
 | `GET` | `/api/research/publications/{publicationId}` | Return one stored publication with chunks and assessments. |
 
-## What Is Real in the Prototype vs What Is Mocked
+## 🔍 What Is Real in the Prototype vs What Is Mocked
 
 ### Real in the prototype
 - Multi-route React application with working navigation.
@@ -210,7 +231,12 @@ This is the working product README for the React + Vite + TypeScript prototype o
 - Production-grade email or Slack delivery for research digests; v1 is in-app archive only.
 - A live Postgres instance; the research workspace requires `RESEARCH_DATABASE_URL` and does not fall back to mocked publication data.
 
-## What Is Required To Make This a Real Working Solution
+## 🛣 What Is Required To Make This a Real Working Solution
+
+Ten workstreams stand between this prototype and a clinical pilot.
+
+<details>
+<summary><b>Expand the full productionisation checklist</b> — data integrations, backend services, clinical reasoning, workflow, governance, security, evaluation, operations</summary>
 
 ### Data integrations
 - Connect to CTMS or equivalent trial inventory source for active trial metadata and local site status.
@@ -256,7 +282,9 @@ This is the working product README for the React + Vite + TypeScript prototype o
 - Deploy into an approved runtime with observability, support ownership, alerting, rollback, and release gates.
 - Add runbooks for shadow mode, pilot support, incident handling, and scale decisions.
 
-## Recommended Path From Mock To Pilot
+</details>
+
+## 📈 Recommended Path From Mock To Pilot
 1. Harden the frontend prototype into a delivery-oriented workbench without changing the core workflow posture.
 2. Replace the mock API layer with real backend services that preserve the current contracts.
 3. Lock data contracts and source mappings for CTMS, Epic, notes, genomics, and outside records.
@@ -264,7 +292,7 @@ This is the working product README for the React + Vite + TypeScript prototype o
 5. Run shadow-mode validation with named coordinators, PI reviewers, and readiness gates.
 6. Launch a controlled oncology pilot only after safety, workflow, and ROI thresholds are met.
 
-## Run
+## 🚀 Run
 
 Requires **Node.js 22 or newer** — the local API is started with
 `node --experimental-strip-types`, which needs 22.
@@ -281,10 +309,11 @@ local API on `127.0.0.1:4180`. Then open:
 - `http://127.0.0.1:4174/handoffs` — SBAR handoff workspace
 - `http://127.0.0.1:4174/research-digests` — literature-monitoring workspace
 
-The trial and handoff workspaces need no keys and no external services. The
-research-digest workspace is the one exception: it requires a Postgres instance
-with pgvector via `RESEARCH_DATABASE_URL` and does **not** fall back to mock
-publication data.
+> [!IMPORTANT]
+> The trial and handoff workspaces need **no keys and no external services**. The
+> research-digest workspace is the one exception: it requires Postgres with pgvector via
+> `RESEARCH_DATABASE_URL` and does **not** fall back to mock publication data. Without a
+> database, use `/cockpit` and `/handoffs`.
 
 ### Running the processes separately
 
@@ -319,6 +348,10 @@ If PowerShell script execution is restricted on your machine, invoke npm as
 `cmd /c npm.cmd <script>` instead of `npm <script>`.
 
 ### Troubleshooting
+
+<details>
+<summary><b>Common startup and hosting problems</b></summary>
+
 - Blank page after double-clicking `index.html` or `dist/index.html`: use `npm run dev` or `npm run preview` instead. Direct `file://` opening is unsupported for this app.
 - Deep link like `/review/match-001` does not load on another host: configure that host with SPA fallback so unknown routes resolve to `index.html`.
 - JS or CSS assets do not load when hosted from a nested folder: host the app at the site root, or later add explicit Vite `base` configuration for subpath deployment.
@@ -329,5 +362,7 @@ If PowerShell script execution is restricted on your machine, invoke npm as
 - The `/screening` page now shows runtime/build metadata plus a PHI-safe diagnostics panel for `Full-record LLM` runs. If the page stays in demo mode, it will clearly say no live provider call was attempted.
 - Live provider health badges are connectivity checks, not quota guarantees. A provider can look healthy and still fail at runtime with a quota or safety error; that fallback path will be recorded in the Screening diagnostics panel.
 
-## Windows cache note
+</details>
+
+### Windows cache note
 If Vite reports an `EPERM` rename error under `node_modules/.vite`, this prototype is configured to use `.vite-cache` at the project root instead. If you saw the old error before this change, stop the dev server and start it again.
