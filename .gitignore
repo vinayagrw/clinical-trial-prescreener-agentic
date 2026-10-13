@@ -9,7 +9,7 @@ dist/
 .vite-cache/
 
 # Local API runtime state (synthetic trial + patient JSON, several MB)
-server/.runtime/
+**/server/.runtime/
 
 # Environment — never commit a real one. `.env.example` is the template.
 .env
