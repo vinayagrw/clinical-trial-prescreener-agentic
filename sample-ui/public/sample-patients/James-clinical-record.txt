@@ -1,0 +1,122 @@
+=== PATIENT CLINICAL RECORD ===
+
+DEMOGRAPHICS:
+Name: James A | Age: 71 | Sex: Male | Weight: 84 kg | Height: 178 cm | BMI: 26.5
+Race: White | Ethnicity: Non-Hispanic
+ECOG Performance Status: 2
+
+PROBLEM LIST:
+1. C34.90 — Malignant neoplasm of unspecified part of bronchus or lung (onset: August 2025)
+2. I21.9 — Acute myocardial infarction, unspecified (onset: January 15, 2026)
+3. I25.10 — Atherosclerotic heart disease of native coronary artery (onset: January 2026)
+4. E11.65 — Type 2 diabetes mellitus with hyperglycemia (onset: 2019)
+5. I10 — Essential (primary) hypertension (onset: 2015)
+
+LABORATORY RESULTS (collected April 6, 2026):
+- ANC: 1,200 /µL (ref 1,500–8,000) — LOW
+- Platelets: 98 K/µL (ref 150–400) — LOW
+- Hemoglobin: 9.8 g/dL (ref 13.5–17.5) — LOW
+- WBC: 3.4 K/µL (ref 4.0–11.0) — LOW
+- Creatinine: 1.8 mg/dL (ref 0.7–1.3) — HIGH
+- Total Bilirubin: 1.4 mg/dL (ref 0.1–1.2) — HIGH
+- AST: 52 U/L (ref 10–40) — HIGH
+- ALT: 48 U/L (ref 7–56) — normal
+- BUN: 32 mg/dL (ref 7–20) — HIGH
+- HbA1c: 7.8% (ref <5.7%) — HIGH
+- Troponin I: <0.01 ng/mL (ref <0.04) — normal (post-recovery)
+
+CURRENT MEDICATIONS:
+1. Carboplatin AUC 5 IV — COMPLETED (Sep 2025–Dec 2025) — First-line NSCLC
+2. Pemetrexed 500 mg/m² IV — COMPLETED (Sep 2025–Dec 2025) — First-line NSCLC
+3. Aspirin 81 mg PO daily — ACTIVE (started Jan 2026) — Post-MI antiplatelet
+4. Clopidogrel 75 mg PO daily — ACTIVE (started Jan 2026) — Post-PCI DAPT
+5. Metoprolol Succinate 50 mg PO daily — ACTIVE — Post-MI beta-blocker
+6. Atorvastatin 80 mg PO daily — ACTIVE — High-intensity statin post-MI
+7. Lisinopril 10 mg PO daily — ACTIVE — Heart failure prevention post-MI
+8. Metformin 1000 mg PO BID — ACTIVE — Type 2 diabetes
+9. Insulin Glargine 20 units SubQ QHS — ACTIVE — Basal insulin
+
+CLINICAL NOTES:
+
+--- Surgical Pathology Report (Sep 10, 2025 — Dr. Alan Park, Pathology) ---
+SURGICAL PATHOLOGY REPORT
+
+Specimen: CT-guided percutaneous biopsy, left upper lobe mass.
+
+Diagnosis: Non-small cell lung carcinoma, poorly differentiated, favor adenocarcinoma.
+
+Microscopic: Malignant cells with solid growth pattern. TTF-1: Positive (weak). CK7: Positive. P40: Negative. Synaptophysin: Negative.
+
+Staging: Clinical stage IV (T4N3M1b) — based on FDG-avid bone metastases (L3 vertebral body, right iliac crest) on PET-CT.
+
+Comment: Poorly differentiated carcinoma consistent with NSCLC, adenocarcinoma subtype. Recommend liquid biopsy for comprehensive genomic profiling given limited tissue.
+
+--- Genomic Profiling Report (Oct 2, 2025 — Guardant Health) ---
+GUARDANT360 LIQUID BIOPSY REPORT
+
+Specimen: Peripheral blood, cfDNA
+
+Genomic Findings:
+- EGFR exon 20 insertion (p.D770_N771insGD) — DETECTED (VAF 8.2%)
+- TP53 Y220C — DETECTED (VAF 12.1%)
+- STK11 loss — DETECTED (VAF 6.4%)
+- No ALK, ROS1, RET, or MET alterations detected
+
+Biomarkers:
+- Blood TMB: 6.3 mut/Mb
+- MSS (microsatellite stable)
+
+Clinical Interpretation: EGFR exon 20 insertion detected. This alteration confers resistance to standard EGFR TKIs. Exon20-targeted therapies or clinical trials recommended. STK11 loss may predict reduced benefit from immunotherapy.
+
+--- Cardiac Catheterization and PCI Report (Jan 17, 2026 — Dr. Robert Singh, Interventional Cardiology) ---
+CARDIAC CATHETERIZATION AND PCI REPORT
+
+Indication: NSTEMI. Troponin peak 2.4 ng/mL on January 15, 2026. ECG showed ST depression in leads V4-V6.
+
+Procedure: Left heart catheterization via right radial artery approach.
+
+Findings:
+- Left main: Patent
+- LAD: 80% stenosis in the mid-segment — CULPRIT LESION
+- LCx: 40% stenosis, non-flow-limiting
+- RCA: Patent
+- LVEF estimated at 45% (mildly reduced)
+
+Intervention: Successful PCI to mid-LAD with drug-eluting stent (Xience Sierra 3.0 x 18 mm). TIMI 3 flow restored. No complications.
+
+Post-procedure plan:
+1. Dual antiplatelet therapy (aspirin + clopidogrel) for minimum 12 months
+2. High-intensity statin
+3. Beta-blocker and ACE inhibitor
+4. Cardiology follow-up in 4 weeks
+5. Clear for oncology treatment resumption after 4-week recovery period — with cardiac monitoring
+
+--- Progress Note (Apr 8, 2026 — Dr. William Nakamura, Thoracic Oncology) ---
+PROGRESS NOTE — THORACIC ONCOLOGY CLINIC
+
+Subjective: Patient returns after completing platinum-based chemotherapy and recovering from NSTEMI in January. He reports increasing fatigue, dyspnea on exertion (climbing one flight of stairs), and decreased appetite. Weight down 4 kg over 2 months.
+
+Objective:
+- ECOG Performance Status: 2 — ambulatory, capable of self-care, unable to carry out work activities, up and about more than 50% of waking hours
+- Vital signs: BP 138/82, HR 72, Temp 98.6°F, SpO2 93% on RA
+- Labs (April 6): Pancytopenia — ANC 1,200, Plt 98K, Hgb 9.8. Renal insufficiency — Cr 1.8, BUN 32. Elevated transaminases — AST 52. Bilirubin 1.4.
+- CT chest (April 2): Progressive disease — LUL mass 5.8 cm (was 4.2 cm). New contralateral mediastinal lymphadenopathy.
+- No brain MRI performed this visit.
+
+Assessment:
+1. Metastatic NSCLC with EGFR exon 20 insertion — disease progression on first-line carboplatin/pemetrexed.
+2. Status post NSTEMI (January 15, 2026) — only 83 days ago. Cardiac stent in place. On DAPT.
+3. Declining performance status (ECOG 2). Weight loss. Functional decline.
+4. Pancytopenia — likely treatment-related myelosuppression. ANC 1,200 (below most trial thresholds of ≥1,500). Platelets 98K (below most thresholds of ≥100K).
+5. Renal insufficiency — creatinine 1.8 (above most trial thresholds of ≤1.5).
+
+Plan:
+1. Clinical trial screening for EGFR exon 20-targeted therapy.
+2. IMPORTANT: Multiple barriers to trial eligibility:
+   a. MI within 6 months (most trials exclude cardiac events within 6 months)
+   b. Inadequate organ function (ANC, platelets, creatinine all out of range)
+   c. ECOG 2 (many trials require ECOG 0-1)
+3. Will screen for LU-021 but anticipate exclusions.
+4. Transfusion support if hemoglobin drops below 8.
+5. Cardiology follow-up for ongoing cardiac monitoring.
+6. Discuss palliative care options and goals of care.

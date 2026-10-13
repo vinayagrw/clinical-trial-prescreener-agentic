@@ -1,0 +1,143 @@
+/*
+ * Theme overrides — applied via a class on <html>.
+ * Default is light (no class needed; declared in tokens.css).
+ *
+ *   html.theme-light  (default)
+ *   html.theme-dark
+ *   html.theme-hc     (high contrast, WCAG AAA targets)
+ *   html.theme-portal (patient portal — larger type, softer spacing)
+ *
+ * Only override semantic color slots here, never raw palette tokens.
+ * This is wired from main.tsx on first paint (reads localStorage before mount).
+ */
+
+html.theme-dark {
+  --color-bg-base: #0d1a1f;
+  --color-bg-panel: #142229;
+  --color-bg-panel-strong: #0f1c22;
+  --color-fg-primary: #f4ede0;
+  --color-fg-secondary: #a8b5bb;
+  --color-fg-onDark: #fffaf3;
+  --color-border-subtle: #2b3a42;
+  --color-accent: #4fb7be;
+  --color-accent-soft: rgba(79, 183, 190, 0.16);
+  --color-success: #8fb57e;
+  --color-success-soft: rgba(143, 181, 126, 0.16);
+  --color-warning: #e0ad52;
+  --color-warning-soft: rgba(224, 173, 82, 0.16);
+  --color-danger: #e08675;
+  --color-danger-soft: rgba(224, 134, 117, 0.16);
+  --shadow: 0 18px 42px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55);
+
+  /* Viz palette — dark theme retuning for perceptual uniformity */
+  --viz-series-1: #4fb7be;
+  --viz-series-2: #e0ad52;
+  --viz-series-3: #8fb57e;
+  --viz-series-4: #e08675;
+  --viz-series-5: #6892b8;
+  --viz-series-6: #b68ab0;
+  --viz-series-7: #8aa39a;
+  --viz-ramp-0: #0f1c22;
+  --viz-ramp-1: #1b2d36;
+  --viz-ramp-2: #2e4a56;
+  --viz-ramp-3: #5a7a7d;
+  --viz-ramp-4: #a8a063;
+  --viz-ramp-5: #e0ad52;
+  --viz-status-pass: #8fb57e;
+  --viz-status-fail: #e08675;
+  --viz-status-uncertain: #e0ad52;
+  --viz-status-manual: #a8b5bb;
+  --viz-grid: rgba(244, 237, 224, 0.08);
+  --viz-axis: rgba(244, 237, 224, 0.35);
+  --viz-datum-ring: rgba(244, 237, 224, 0.22);
+}
+
+html.theme-dark body {
+  background:
+    radial-gradient(circle at top right, rgba(79, 183, 190, 0.12), transparent 22%),
+    radial-gradient(circle at left 10%, rgba(224, 134, 117, 0.06), transparent 28%),
+    linear-gradient(180deg, #0d1a1f 0%, #071216 100%);
+}
+
+/* High-contrast — WCAG AAA targets for coordinators who need it, or low-vision users. */
+html.theme-hc {
+  --color-bg-base: #ffffff;
+  --color-bg-panel: #ffffff;
+  --color-bg-panel-strong: #f5f5f5;
+  --color-fg-primary: #000000;
+  --color-fg-secondary: #1a1a1a;
+  --color-border-subtle: #000000;
+  --color-accent: #003d66;
+  --color-accent-soft: #d6e6f2;
+  --color-success: #0a5d0a;
+  --color-success-soft: #d4f0d4;
+  --color-warning: #8a5a00;
+  --color-warning-soft: #fce4b8;
+  --color-danger: #7a0000;
+  --color-danger-soft: #f7d6d6;
+  --shadow: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --focus-ring-width: 3px;
+
+  /* Viz palette — maximum contrast pairs for HC */
+  --viz-series-1: #003d66;
+  --viz-series-2: #8a5a00;
+  --viz-series-3: #0a5d0a;
+  --viz-series-4: #7a0000;
+  --viz-series-5: #3a0a5d;
+  --viz-series-6: #5d0a3a;
+  --viz-series-7: #1a1a1a;
+  --viz-ramp-0: #ffffff;
+  --viz-ramp-1: #e6e6e6;
+  --viz-ramp-2: #b8b8b8;
+  --viz-ramp-3: #8a8a8a;
+  --viz-ramp-4: #5c5c5c;
+  --viz-ramp-5: #000000;
+  --viz-status-pass: #0a5d0a;
+  --viz-status-fail: #7a0000;
+  --viz-status-uncertain: #8a5a00;
+  --viz-status-manual: #1a1a1a;
+  --viz-grid: #000000;
+  --viz-axis: #000000;
+  --viz-text: #000000;
+  --viz-text-strong: #000000;
+  --viz-datum-ring: #000000;
+}
+
+html.theme-hc body {
+  background: #ffffff;
+}
+
+html.theme-hc .surface,
+html.theme-hc .metric-card,
+html.theme-hc .alert-card,
+html.theme-hc .summary-header {
+  border-width: 2px;
+}
+
+/* Patient portal theme — larger type, softer palette, fewer visual claims on attention. */
+html.theme-portal {
+  --color-bg-base: #faf7f1;
+  --color-bg-panel: #ffffff;
+  --color-fg-primary: #1c2a33;
+  --color-fg-secondary: #4a5a63;
+  font-size: 18px; /* bump base for patient-facing surfaces */
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Honor system preference if user has made no explicit choice. */
+  html:not(.theme-light):not(.theme-dark):not(.theme-hc):not(.theme-portal) {
+    --color-bg-base: #0d1a1f;
+    --color-bg-panel: #142229;
+    --color-bg-panel-strong: #0f1c22;
+    --color-fg-primary: #f4ede0;
+    --color-fg-secondary: #a8b5bb;
+    --color-border-subtle: #2b3a42;
+    --color-accent: #4fb7be;
+  }
+}

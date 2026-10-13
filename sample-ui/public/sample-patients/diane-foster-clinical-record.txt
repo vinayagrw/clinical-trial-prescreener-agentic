@@ -1,0 +1,118 @@
+=== PATIENT CLINICAL RECORD ===
+
+DEMOGRAPHICS:
+Name: Jamey M | Age: 36 | Sex: Female | Weight: 72 kg | Height: 170 cm | BMI: 24.9
+Race: Black or African American | Ethnicity: Non-Hispanic
+ECOG Performance Status: 0
+
+PROBLEM LIST:
+1. C50.919 — Malignant neoplasm of unspecified site of unspecified female breast (onset: June 2025)
+2. C77.3 — Secondary and unspecified malignant neoplasm of axillary lymph nodes (onset: June 2025)
+3. C78.7 — Secondary malignant neoplasm of liver (onset: March 2026)
+
+LABORATORY RESULTS (collected April 12, 2026):
+- ANC: 3,400 /µL (ref 1,500–8,000) — normal
+- Platelets: 220 K/µL (ref 150–400) — normal
+- Hemoglobin: 13.1 g/dL (ref 12.0–16.0) — normal
+- WBC: 7.8 K/µL (ref 4.0–11.0) — normal
+- Creatinine: 0.7 mg/dL (ref 0.6–1.2) — normal
+- Total Bilirubin: 0.4 mg/dL (ref 0.1–1.2) — normal
+- AST: 22 U/L (ref 10–40) — normal
+- ALT: 19 U/L (ref 7–56) — normal
+- LDH: 245 U/L (ref 120–246) — normal
+- CA 15-3: 68 U/mL (ref <30) — HIGH
+
+CURRENT MEDICATIONS:
+1. Doxorubicin 60 mg/m² IV — COMPLETED (Jul–Sep 2025) — Neoadjuvant AC for TNBC
+2. Cyclophosphamide 600 mg/m² IV — COMPLETED (Jul–Sep 2025) — Neoadjuvant AC for TNBC
+3. Paclitaxel 80 mg/m² weekly IV — COMPLETED (Oct 2025–Jan 2026) — Adjuvant T for TNBC
+4. Tamoxifen — NOT prescribed (ER-negative)
+5. Acetaminophen 650 mg PO PRN — ACTIVE — Pain management
+6. Lorazepam 0.5 mg PO PRN — ACTIVE — Anxiety
+
+CLINICAL NOTES:
+
+--- Surgical Pathology Report (Jun 18, 2025 — Dr. Patricia Williams, Breast Pathology) ---
+SURGICAL PATHOLOGY REPORT
+
+Specimen: Left breast, modified radical mastectomy.
+
+Diagnosis: Invasive ductal carcinoma, high-grade (Grade 3, Nottingham score 9/9).
+
+Immunohistochemistry:
+- Estrogen Receptor (ER): Negative (0%)
+- Progesterone Receptor (PR): Negative (0%)
+- HER2/neu: Negative (IHC 1+, FISH non-amplified, ratio 1.1)
+- Ki-67 proliferation index: 85%
+
+Tumor size: 3.8 cm greatest dimension.
+Margins: Negative (closest margin 4 mm, deep).
+Lymphovascular invasion: Present.
+Axillary lymph nodes: 4 of 18 positive for metastatic carcinoma.
+
+Final staging: pT2N2aM0, Stage IIIA.
+
+Comment: Triple-negative breast cancer (TNBC). High proliferative index. Recommend genomic profiling for potential targeted therapy options.
+
+--- Genomic Profiling Report (Jul 8, 2025 — Foundation Medicine) ---
+FOUNDATIONONE CDx COMPREHENSIVE GENOMIC PROFILING
+
+Specimen: Breast, mastectomy
+Tumor content: 60%
+
+Genomic Findings:
+- No targetable alterations identified in BRCA1, BRCA2, PIK3CA, AKT1, or ESR1
+- TP53 R175H — DETECTED (pathogenic)
+- MYC amplification — DETECTED
+- No NTRK fusions detected
+
+Biomarkers:
+- TMB: 8 mut/Mb (intermediate)
+- MSS (microsatellite stable)
+- PD-L1 CPS: 12 (positive, by Ventana SP142 assay)
+  Note: CPS ≥10 is typically considered positive for immunotherapy eligibility in TNBC.
+
+Clinical Interpretation: No actionable targetable alterations. PD-L1 CPS 12 supports potential eligibility for immunotherapy-based regimens. TMB intermediate — may have some predictive value for checkpoint inhibitor response.
+
+--- CT Chest/Abdomen/Pelvis Imaging Report (Apr 5, 2026 — Dr. Karen Liu, Body Imaging) ---
+CT CHEST/ABDOMEN/PELVIS WITH IV CONTRAST
+
+Clinical Indication: Restaging. Known TNBC, post-mastectomy, post-adjuvant chemotherapy.
+
+Findings:
+Chest: No pulmonary metastases. Post-surgical changes left chest wall, stable. No pleural effusion.
+Abdomen:
+- Liver: Two new hypodense lesions in the right hepatic lobe measuring 12 mm (segment VI) and 8 mm (segment VII). Enhancement pattern suspicious for metastatic disease. No prior liver lesions for comparison.
+- No biliary dilatation. Gallbladder unremarkable.
+- Pancreas, spleen, adrenals: Normal.
+- No ascites.
+Pelvis: Unremarkable. No lymphadenopathy.
+
+Impression:
+1. New hepatic lesions suspicious for metastatic disease. Recommend biopsy or short-interval follow-up.
+2. No evidence of pulmonary metastatic disease.
+3. Post-surgical changes, stable.
+
+--- Progress Note (Apr 11, 2026 — Dr. Rachel Kim, Breast Oncology) ---
+PROGRESS NOTE — BREAST ONCOLOGY CLINIC
+
+Subjective: Patient presents for results review. She reports feeling well. No bone pain, no jaundice, no abdominal distention. Weight stable. Sleep and appetite normal.
+
+Objective:
+- ECOG Performance Status: 0 — fully active
+- Vital signs: BP 118/72, HR 68, Temp 98.2°F, SpO2 99% on RA
+- Labs (April 12): All within normal limits. CA 15-3 elevated at 68 (was 34 in January).
+- CT (April 5): New hepatic metastases — disease progression.
+
+Assessment:
+1. Triple-negative breast cancer with new hepatic metastases — disease progression after neoadjuvant AC and adjuvant paclitaxel.
+2. PD-L1 CPS 12 — eligible for immunotherapy combination trials.
+3. Excellent performance status (ECOG 0). No active autoimmune conditions.
+4. No prior immunotherapy exposure.
+
+Plan:
+1. Screen for BRC-PD1-042 trial (PD-L1-enriched TNBC, combination immunotherapy).
+2. Liver biopsy to confirm metastatic TNBC (scheduled April 18).
+3. No contraindications to immunotherapy identified. No active autoimmune disease. Not on systemic immunosuppressants.
+4. Continue supportive care.
+5. Return in 2 weeks with biopsy results.

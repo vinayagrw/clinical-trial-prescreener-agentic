@@ -1,0 +1,52 @@
+[data-theme="dark"] {
+  --bg-primary: #0f1a1f;
+  --bg-secondary: #162028;
+  --bg-elevated: rgba(26, 38, 46, 0.92);
+  --bg-glass: rgba(18, 28, 34, 0.78);
+  --bg-glass-border: rgba(255, 255, 255, 0.15);
+  --bg-input: #1a2830;
+
+  --ink: #e8e2d8;
+  --ink-secondary: #a0adb3;
+  --ink-muted: #7a8a91;
+  --ink-inverse: #16242c;
+
+  --teal-600: #8dd4d9;
+  --teal-500: #5bc4cb;
+  --teal-400: #3aafb7;
+  --teal-300: #2a8e95;
+  --teal-100: #1a3a3e;
+  --teal-50: #122a2d;
+
+  --moss-500: #92b882;
+  --moss-400: #78a068;
+  --moss-100: #1e2e1a;
+  --moss-50: #162212;
+
+  --amber-500: #e8b84c;
+  --amber-400: #d0a030;
+  --amber-100: #2e2412;
+  --amber-50: #231c0e;
+
+  --brick-500: #d47266;
+  --brick-400: #b85a50;
+  --brick-100: #2e1a18;
+  --brick-50: #231412;
+
+  --slate-500: #8a9aa0;
+  --slate-400: #6b7a82;
+  --slate-300: #6a7a80;
+  --slate-200: #3a4850;
+  --slate-100: #2a3438;
+
+  --glass-bg: rgba(18, 28, 34, 0.78);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.15);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.35);
+  --shadow-glow-teal: 0 0 0 3px rgba(90, 196, 203, 0.2);
+  --shadow-focus: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--teal-400);
+}

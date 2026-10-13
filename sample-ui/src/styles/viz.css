@@ -1,0 +1,221 @@
+/*
+ * Visualization layer CSS — consumed by src/components/viz/* and feature-level
+ * composed viz. Kept separate from primitives.css so viz concerns don't bleed.
+ *
+ * Rules here are scoped to .viz-frame and its descendants. Tokens referenced
+ * here are defined in tokens.css under the "Visualization palette" block and
+ * overridden per theme in themes.css.
+ */
+
+.viz-frame {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.viz-frame__label {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--viz-text-strong);
+  margin: 0;
+}
+
+.viz-frame__description {
+  font-size: 0.8125rem;
+  color: var(--viz-text);
+  margin: 0;
+}
+
+.viz-frame__surface {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-md);
+  background: var(--viz-bg);
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.viz-frame__surface > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.viz-frame__skeleton {
+  flex: 1;
+  min-height: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-subtle) 0%,
+    rgba(15, 92, 98, 0.14) 50%,
+    var(--color-bg-subtle) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm);
+  animation: viz-skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes viz-skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viz-frame__skeleton {
+    animation: none;
+  }
+}
+
+.viz-frame__empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--viz-text);
+  font-family: var(--font-sans);
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.viz-frame__error {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 2px solid var(--viz-status-fail);
+  border-radius: var(--radius-sm);
+  color: var(--viz-status-fail);
+  background: var(--color-danger-soft);
+}
+
+/* Screen-reader-only fallback table wrapper. */
+.viz-frame__sr-only-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-fallback-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.viz-fallback-table--visible {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--viz-text);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.viz-fallback-table--visible caption {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-weight: 600;
+  color: var(--viz-text-strong);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel-strong);
+}
+
+.viz-fallback-table--visible th,
+.viz-fallback-table--visible td {
+  padding: var(--space-2) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.viz-fallback-table--visible th {
+  font-weight: 600;
+  color: var(--viz-text-strong);
+  background: var(--color-bg-panel);
+}
+
+.viz-fallback-table--visible tr:last-child th,
+.viz-fallback-table--visible tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Interactive datum styling — used by primitives for focus + hover. */
+.viz-datum {
+  transition: transform var(--viz-motion-duration) var(--viz-motion-ease),
+    opacity var(--viz-motion-duration) var(--viz-motion-ease);
+  cursor: pointer;
+  outline: none;
+}
+
+.viz-datum:hover {
+  transform: scale(1.04);
+}
+
+.viz-datum:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.viz-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  font-size: 0.75rem;
+  color: var(--viz-text);
+}
+
+.viz-legend__swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.viz-legend__swatch::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: currentColor;
+}
+
+/* Tooltip shell used by primitives — matches token design system. */
+.viz-tooltip {
+  position: absolute;
+  pointer-events: none;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-fg-onDark);
+  background: var(--ink);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--elevation-tooltip);
+  max-width: 260px;
+  z-index: var(--z-tooltip);
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.viz-tooltip strong {
+  display: block;
+  color: var(--color-fg-onDark);
+  margin-bottom: 2px;
+}
+
+.viz-tooltip__meta {
+  opacity: 0.8;
+  font-size: 0.6875rem;
+}

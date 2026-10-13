@@ -1,0 +1,54 @@
+/* ========== MISSION CONTROL ========== */
+.mission-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ========== DEEP REVIEW ========== */
+.deep-review {
+  display: flex;
+  flex-direction: column;
+}
+.deep-review__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(380px, 0.85fr);
+  gap: var(--space-5);
+}
+.deep-review__criteria {
+  display: flex;
+  flex-direction: column;
+}
+.deep-review__bottom {
+  margin-top: var(--space-5);
+}
+
+/* ========== INSIGHTS ========== */
+.insights {
+  display: flex;
+  flex-direction: column;
+}
+.insights__charts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+/* ========== TRIAL CONFIG ========== */
+.trial-config {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.8fr);
+  gap: var(--space-5);
+}
+
+/* ========== AUDIT TRACE ========== */
+.audit-trace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.audit-trace__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}

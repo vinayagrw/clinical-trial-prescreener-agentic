@@ -1,0 +1,545 @@
+/*
+ * Primitives — reset, base element styles, and a11y focus rings.
+ * Component-level styles live in components.css.
+ * This file depends on tokens.css for all color and spacing values.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-fg-primary);
+  background:
+    radial-gradient(circle at top right, rgba(15, 92, 98, 0.12), transparent 22%),
+    radial-gradient(circle at left 10%, rgba(173, 77, 65, 0.06), transparent 28%),
+    linear-gradient(180deg, #fbf7f0 0%, #f0e8dd 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+  color: var(--color-fg-secondary);
+  line-height: 1.55;
+}
+
+/* --- Focus rings (a11y baseline) ---
+ * Any interactive element that gets keyboard focus shows a visible, high-contrast ring.
+ * Uses :focus-visible so mouse clicks don't spam outlines.
+ */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: inherit;
+}
+
+/* Respect user's OS-level reduced motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Screen-reader-only utility for visually hidden but announced content. */
+.ctp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================================
+ * Radix wrapper styling. Class hooks are emitted by components/primitives/*
+ * and styled here against the token system so a theme switch retints
+ * everything in lockstep with the rest of the app.
+ * ========================================================================= */
+
+/* --- Dialog --- */
+.ctp-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 28, 32, 0.48);
+  backdrop-filter: blur(2px);
+  z-index: var(--z-dialog-overlay, 50);
+  animation: ctp-fade-in var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.ctp-dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: min(640px, calc(100vw - 2rem));
+  max-height: calc(100vh - 4rem);
+  overflow: auto;
+  background: var(--color-bg-raised, #fbf7f0);
+  color: var(--color-fg-primary);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: var(--elevation-dialog, 0 24px 64px rgba(15, 28, 32, 0.25));
+  padding: var(--space-6, 24px);
+  z-index: var(--z-dialog, 51);
+  animation: ctp-slide-up var(--motion-duration-base) var(--motion-ease-out);
+}
+
+.ctp-dialog-title {
+  margin: 0 0 var(--space-2, 8px);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-fg-primary);
+}
+
+.ctp-dialog-description {
+  margin: 0 0 var(--space-4, 16px);
+  color: var(--color-fg-secondary);
+  line-height: 1.5;
+}
+
+.ctp-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2, 8px);
+  margin-top: var(--space-4, 16px);
+}
+
+/* --- Popover --- */
+.ctp-popover-content {
+  background: var(--color-bg-raised, #fbf7f0);
+  color: var(--color-fg-primary);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: var(--elevation-popover, 0 12px 32px rgba(15, 28, 32, 0.18));
+  padding: var(--space-3, 12px);
+  max-width: 360px;
+  z-index: var(--z-popover, 40);
+  animation: ctp-fade-in var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.ctp-popover-arrow {
+  fill: var(--color-bg-raised, #fbf7f0);
+}
+
+/* --- Tooltip --- */
+.ctp-tooltip-content {
+  background: var(--color-fg-primary);
+  color: var(--color-bg-base);
+  padding: var(--space-1, 4px) var(--space-2, 8px);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.8125rem;
+  box-shadow: var(--elevation-tooltip, 0 4px 12px rgba(15, 28, 32, 0.3));
+  max-width: 240px;
+  z-index: var(--z-tooltip, 60);
+  animation: ctp-fade-in var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.ctp-tooltip-arrow {
+  fill: var(--color-fg-primary);
+}
+
+/* --- Tabs --- */
+.ctp-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 12px);
+}
+
+.ctp-tabs-vertical {
+  flex-direction: row;
+}
+
+.ctp-tabs-list {
+  display: inline-flex;
+  gap: var(--space-1, 4px);
+  padding: var(--space-1, 4px);
+  background: var(--color-bg-subtle, rgba(15, 92, 98, 0.06));
+  border-radius: var(--radius-md, 12px);
+}
+
+.ctp-tabs-trigger {
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+  border-radius: var(--radius-sm, 6px);
+  background: transparent;
+  color: var(--color-fg-secondary);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background var(--motion-duration-fast) var(--motion-ease-out),
+    color var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.ctp-tabs-trigger[data-state="active"] {
+  background: var(--color-bg-raised, #fbf7f0);
+  color: var(--color-fg-primary);
+  box-shadow: 0 1px 3px rgba(15, 28, 32, 0.08);
+}
+
+.ctp-tabs-content:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+}
+
+/* --- Dropdown menu --- */
+.ctp-menu-content {
+  min-width: 220px;
+  padding: var(--space-1, 4px);
+  background: var(--color-bg-raised, #fbf7f0);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: var(--elevation-popover, 0 12px 32px rgba(15, 28, 32, 0.18));
+  z-index: var(--z-popover, 40);
+  animation: ctp-fade-in var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.ctp-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+  border-radius: var(--radius-sm, 6px);
+  color: var(--color-fg-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.ctp-menu-item[data-highlighted] {
+  background: var(--color-bg-subtle, rgba(15, 92, 98, 0.1));
+  outline: none;
+}
+
+.ctp-menu-item[data-disabled] {
+  color: var(--color-fg-muted, rgba(15, 28, 32, 0.4));
+  pointer-events: none;
+}
+
+.ctp-menu-item-destructive {
+  color: var(--color-danger, #ad4d41);
+}
+
+.ctp-menu-item-destructive[data-highlighted] {
+  background: rgba(173, 77, 65, 0.12);
+}
+
+.ctp-menu-separator {
+  height: 1px;
+  margin: var(--space-1, 4px) var(--space-2, 8px);
+  background: var(--color-border-subtle, rgba(15, 28, 32, 0.08));
+}
+
+.ctp-menu-label {
+  padding: var(--space-2, 8px) var(--space-3, 12px) var(--space-1, 4px);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-fg-muted, rgba(15, 28, 32, 0.5));
+}
+
+/* --- Toast --- */
+.ctp-toast-viewport {
+  position: fixed;
+  top: var(--space-4, 16px);
+  right: var(--space-4, 16px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2, 8px);
+  width: 380px;
+  max-width: calc(100vw - 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  z-index: var(--z-toast, 70);
+}
+
+.ctp-toast {
+  background: var(--color-bg-raised, #fbf7f0);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: var(--elevation-popover, 0 12px 32px rgba(15, 28, 32, 0.18));
+  padding: var(--space-3, 12px) var(--space-4, 16px);
+  position: relative;
+  animation: ctp-slide-up var(--motion-duration-base) var(--motion-ease-out);
+  border-left: 4px solid var(--color-border-subtle, rgba(15, 28, 32, 0.12));
+}
+
+.ctp-toast-success {
+  border-left-color: var(--color-success, #2f7d62);
+}
+.ctp-toast-warning {
+  border-left-color: var(--color-warning, #c4831f);
+}
+.ctp-toast-critical {
+  border-left-color: var(--color-danger, #ad4d41);
+}
+
+.ctp-toast-title {
+  margin: 0 0 var(--space-1, 4px);
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.ctp-toast-description {
+  margin: 0;
+  color: var(--color-fg-secondary);
+  font-size: 0.875rem;
+}
+
+.ctp-toast-actions {
+  display: flex;
+  gap: var(--space-2, 8px);
+  margin-top: var(--space-2, 8px);
+}
+
+.ctp-toast-close {
+  position: absolute;
+  top: var(--space-2, 8px);
+  right: var(--space-2, 8px);
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-fg-muted, rgba(15, 28, 32, 0.5));
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.ctp-toast-close:hover {
+  color: var(--color-fg-primary);
+}
+
+/* --- Slider --- */
+.ctp-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  touch-action: none;
+  user-select: none;
+}
+
+.ctp-slider-track {
+  position: relative;
+  flex-grow: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-border-subtle, rgba(15, 28, 32, 0.12));
+}
+
+.ctp-slider-range {
+  position: absolute;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-accent, #0f5c62);
+}
+
+.ctp-slider-thumb {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-bg-raised, #fbf7f0);
+  border: 2px solid var(--color-accent, #0f5c62);
+  box-shadow: 0 2px 6px rgba(15, 28, 32, 0.18);
+  cursor: grab;
+}
+
+.ctp-slider-thumb:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* --- Spinner --- */
+.ctp-spinner {
+  display: inline-flex;
+  color: var(--color-accent, #0f5c62);
+}
+
+.ctp-spinner svg {
+  animation: ctp-spin 0.9s linear infinite;
+}
+
+@keyframes ctp-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctp-spinner svg {
+    animation: none;
+  }
+}
+
+/* --- Skeleton --- (shimmer class defined in motion.css) */
+
+/* --- Shortcut --- */
+.ctp-shortcut {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.ctp-shortcut-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  background: var(--color-bg-subtle, rgba(15, 28, 32, 0.06));
+  border: 1px solid var(--color-border-subtle, rgba(15, 28, 32, 0.12));
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, monospace);
+  font-size: 0.75rem;
+  color: var(--color-fg-secondary);
+}
+
+/* --- Command palette --- */
+.ctp-command-palette {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 12px);
+  min-width: 480px;
+  max-width: 640px;
+}
+
+.ctp-command-input {
+  width: 100%;
+  padding: var(--space-3, 12px) var(--space-4, 16px);
+  background: var(--color-bg-subtle, rgba(15, 28, 32, 0.04));
+  border: 1px solid var(--color-border-subtle, rgba(15, 28, 32, 0.1));
+  border-radius: var(--radius-md, 12px);
+  color: var(--color-fg-primary);
+  font-size: 1rem;
+}
+
+.ctp-command-input::placeholder {
+  color: var(--color-fg-muted, rgba(15, 28, 32, 0.45));
+}
+
+.ctp-command-list {
+  max-height: 320px;
+  overflow: auto;
+}
+
+.ctp-command-empty {
+  padding: var(--space-4, 16px);
+  text-align: center;
+  color: var(--color-fg-muted, rgba(15, 28, 32, 0.5));
+  font-size: 0.875rem;
+}
+
+.ctp-command-group {
+  margin-bottom: var(--space-3, 12px);
+}
+
+.ctp-command-group-label {
+  padding: var(--space-1, 4px) var(--space-3, 12px);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-fg-muted, rgba(15, 28, 32, 0.5));
+}
+
+.ctp-command-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3, 12px);
+  width: 100%;
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+  background: transparent;
+  border-radius: var(--radius-sm, 6px);
+  color: var(--color-fg-primary);
+  text-align: start;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.ctp-command-item.is-active,
+.ctp-command-item:hover {
+  background: var(--color-bg-subtle, rgba(15, 92, 98, 0.1));
+}
+
+.ctp-command-item[disabled] {
+  color: var(--color-fg-muted, rgba(15, 28, 32, 0.4));
+  cursor: not-allowed;
+}
+
+.ctp-command-hint {
+  display: inline-flex;
+  gap: var(--space-2, 8px);
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--color-fg-muted, rgba(15, 28, 32, 0.5));
+}
+
+/* --- Theme switcher button --- */
+.ctp-theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-fg-secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.ctp-theme-switcher:hover,
+.ctp-theme-switcher:focus-visible {
+  background: var(--color-bg-subtle, rgba(15, 92, 98, 0.1));
+}
+
+/* --- Toast undo action --- */
+.ctp-toast-undo {
+  background: transparent;
+  color: var(--color-accent);
+  font-weight: 600;
+  cursor: pointer;
+  padding: var(--space-1, 4px) var(--space-2, 8px);
+  border-radius: var(--radius-sm, 6px);
+}
+
+.ctp-toast-undo:hover {
+  background: var(--color-accent-soft, rgba(15, 92, 98, 0.12));
+}

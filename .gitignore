@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Vite caches — non-standard location, set by `cacheDir` in both vite configs,
+# so a stock Vite .gitignore does not catch these.
+.vite-cache/
+
+# Local API runtime state (synthetic trial + patient JSON, several MB)
+server/.runtime/
+
+# Environment — never commit a real one. `.env.example` is the template.
+.env
+.env.*
+!.env.example
+
+# Editor / agent state
+.claude/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

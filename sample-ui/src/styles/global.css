@@ -1,0 +1,25 @@
+/*
+ * Global CSS entry point.
+ *
+ * Import order matters for cascade:
+ *   1. tokens     — design tokens (CSS custom properties, no rules)
+ *   2. themes     — theme overrides (only fire when html has theme-* class)
+ *   3. motion     — keyframes and reduced-motion rules
+ *   4. primitives — base reset, focus rings, sr-only utility
+ *   5. components — legacy component styles (preserved verbatim in ../styles.css)
+ *   6. responsive — net-new responsive rules on top of legacy breakpoints
+ *
+ * Consumed by main.tsx (exactly one import: `import "./styles/global.css";`).
+ */
+
+@import url("./tokens.css");
+@import url("./themes.css");
+@import url("./motion.css");
+@import url("./primitives.css");
+@import url("./viz.css");
+@import url("../styles.css");
+@import url("./responsive.css");
+@import url("./ai-features.css");
+@import url("./handoff.css");
+@import url("./research.css");
+@import url("./review.css");

@@ -1,0 +1,191 @@
+.app-frame {
+  display: grid;
+  grid-template-rows: var(--command-bar-h) 1fr;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.app-frame--with-panel {
+  grid-template-columns: 1fr var(--side-panel-w);
+}
+
+.command-bar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-command-bar);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: var(--command-bar-h);
+  padding: 0 var(--space-6);
+  grid-column: 1 / -1;
+}
+
+.command-bar__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-serif);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-bold);
+  color: var(--teal-500);
+  white-space: nowrap;
+}
+
+.command-bar__breadcrumbs {
+  flex: 1;
+  min-width: 0;
+}
+
+.command-bar__search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 320px;
+  height: 36px;
+  padding: 0 var(--space-3);
+  background: var(--bg-input);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-small);
+  color: var(--ink-muted);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.command-bar__search:focus-within {
+  border-color: var(--teal-400);
+  box-shadow: var(--shadow-glow-teal);
+}
+
+.command-bar__search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: var(--text-small);
+  color: var(--ink);
+}
+
+.command-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.page-body {
+  padding: var(--space-6);
+  overflow-y: auto;
+  max-width: 1600px;
+}
+
+/* Side panel */
+.side-panel {
+  position: fixed;
+  top: var(--command-bar-h);
+  right: 0;
+  bottom: 0;
+  width: var(--side-panel-w);
+  z-index: var(--z-side-panel);
+  display: flex;
+  flex-direction: column;
+  animation: slide-in-right var(--duration-normal) var(--ease-out) forwards;
+}
+
+.side-panel--closing {
+  animation: slide-out-right 220ms var(--ease-out) forwards;
+}
+
+.side-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: var(--glass-border);
+}
+
+.side-panel__content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Overlay when side panel is open */
+.side-panel-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-side-panel) - 1);
+  background: rgba(22, 36, 44, 0.15);
+  animation: backdrop-in var(--duration-normal) var(--ease-out) forwards;
+}
+
+/* Command Palette */
+.command-palette-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-command-palette);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  background: rgba(22, 36, 44, 0.3);
+  backdrop-filter: blur(8px);
+  animation: backdrop-in 200ms var(--ease-out) forwards;
+}
+
+.command-palette {
+  width: 560px;
+  max-height: 420px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  animation: float-in 200ms var(--ease-spring) forwards;
+}
+
+.command-palette__input {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: var(--glass-border);
+}
+
+.command-palette__input input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: var(--text-h4);
+  color: var(--ink);
+}
+
+.command-palette__results {
+  overflow-y: auto;
+  max-height: 340px;
+  padding: var(--space-2);
+}
+
+.command-palette__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.command-palette__item:hover,
+.command-palette__item--active {
+  background: var(--teal-50);
+}
+
+.command-palette__item-label {
+  flex: 1;
+  font-size: var(--text-body);
+}
+
+.command-palette__item-meta {
+  font-size: var(--text-micro);
+  color: var(--ink-muted);
+}

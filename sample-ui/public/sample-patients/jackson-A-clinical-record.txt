@@ -1,0 +1,103 @@
+=== PATIENT CLINICAL RECORD ===
+
+DEMOGRAPHICS:
+Name: Jackson A | Age: 34 | Sex: Male | Weight: 68 kg | Height: 163 cm | BMI: 25.6
+Race: White | Ethnicity: Non-Hispanic
+ECOG Performance Status: 1
+
+PROBLEM LIST:
+1. C34.90 — Malignant neoplasm of unspecified part of bronchus or lung (onset: September 2025)
+2. C79.31 — Secondary malignant neoplasm of brain (onset: March 2026; noted as "indeterminate, under surveillance")
+3. Z85.118 — Personal history of other malignant neoplasm of bronchus and lung
+
+LABORATORY RESULTS (collected April 8, 2026):
+- ANC: 2,180 /µL (ref 1,500–8,000) — normal
+- Platelets: 189 K/µL (ref 150–400) — normal
+- Hemoglobin: 11.8 g/dL (ref 12.0–16.0) — LOW
+- WBC: 6.2 K/µL (ref 4.0–11.0) — normal
+- Creatinine: 0.9 mg/dL (ref 0.6–1.2) — normal
+- Total Bilirubin: 0.6 mg/dL (ref 0.1–1.2) — normal
+- AST: 28 U/L (ref 10–40) — normal
+- ALT: 32 U/L (ref 7–56) — normal
+- Albumin: 3.8 g/dL (ref 3.5–5.5) — normal
+
+CURRENT MEDICATIONS:
+1. Carboplatin AUC 5 IV — COMPLETED (Nov 2025 – Feb 2026) — First-line NSCLC
+2. Pemetrexed 500 mg/m² IV — COMPLETED (Nov 2025 – Feb 2026) — First-line NSCLC
+3. Dexamethasone 2 mg PO daily — ACTIVE (started Mar 2026) — CNS prophylaxis
+4. Ondansetron 8 mg PO PRN — ACTIVE (started Nov 2025) — Antiemetic
+5. Omeprazole 20 mg PO daily — ACTIVE (started Nov 2025) — GI prophylaxis
+
+CLINICAL NOTES:
+
+--- Pathology Report (Jan 14, 2026 — Dr. Sarah Chen, Pathology) ---
+FINAL PATHOLOGY REPORT
+
+Specimen: CT-guided percutaneous lung biopsy, right lower lobe.
+
+Diagnosis: Pulmonary adenocarcinoma, moderately differentiated.
+
+Microscopic: Malignant epithelial neoplasm with acinar and lepidic growth patterns. TTF-1 positive. CK7 positive. CK20 negative. Napsin-A positive.
+
+Staging: pT3N2M1a (pleural metastasis confirmed on separate pleural fluid cytology).
+
+Comment: Findings consistent with primary lung adenocarcinoma with pleural dissemination. Recommend molecular profiling for targetable alterations.
+
+--- Genomic Profiling Report (Jan 28, 2026 — Tempus Molecular Diagnostics) ---
+TEMPUS xT COMPREHENSIVE GENOMIC PROFILING REPORT
+
+Patient: [REDACTED]
+Specimen: Lung biopsy, RLL
+Tumor content: 45%
+
+Key Findings:
+- EGFR exon 20 insertion (p.A767_V769dup) — DETECTED
+- No ALK rearrangement
+- No ROS1 rearrangement
+- No BRAF V600E mutation
+- No MET amplification
+- TP53 R248W — DETECTED (variant of unknown significance)
+- PD-L1 TPS: 15% (22C3 antibody)
+- TMB: 4.2 mut/Mb (low)
+- MSS (microsatellite stable)
+
+Clinical Interpretation: EGFR exon 20 insertion detected. This alteration is typically resistant to first- and second-generation EGFR TKIs (erlotinib, gefitinib, afatinib). Patients may benefit from exon20-targeted therapies currently available in clinical trials. PD-L1 expression is low; immunotherapy benefit uncertain.
+
+--- MRI Brain Imaging Report (Mar 30, 2026 — Dr. James Morton, Neuroradiology) ---
+MRI BRAIN WITH AND WITHOUT CONTRAST
+
+Clinical Indication: Staging evaluation. Known metastatic NSCLC.
+
+Findings:
+- New 4mm punctate enhancing focus in the right frontal lobe at the gray-white matter junction. This finding is indeterminate and could represent a small metastasis versus a vascular artifact.
+- No surrounding edema. No mass effect. No midline shift.
+- No other suspicious intracranial lesions identified.
+- Ventricles and sulci are normal in size and configuration.
+
+Impression:
+1. New indeterminate 4mm enhancing focus, right frontal lobe. Cannot definitively characterize as metastatic disease versus artifact at this size.
+2. Recommend short-interval follow-up MRI in 6 weeks for stability assessment.
+3. Clinical correlation with treating oncologist recommended.
+
+--- Progress Note (Apr 10, 2026 — Dr. Michael Torres, Thoracic Oncology) ---
+PROGRESS NOTE — THORACIC ONCOLOGY CLINIC
+
+Subjective: Patient returns for follow-up after completing 4 cycles of carboplatin/pemetrexed. She reports mild fatigue (grade 1) but is functionally independent. No new respiratory symptoms. Appetite stable.
+
+Objective:
+- ECOG Performance Status: 1
+- Vital signs: BP 128/78, HR 76, Temp 98.4°F, SpO2 96% on RA
+- Labs (April 8): ANC 2,180, Plt 189K, Hgb 11.8, Cr 0.9 — adequate organ function
+- Imaging: CT chest (Mar 28) shows progressive right lower lobe mass (3.2 cm → 4.1 cm). New right hilar lymphadenopathy. Brain MRI (Mar 30) with indeterminate 4mm right frontal lesion.
+
+Assessment:
+1. Metastatic NSCLC with EGFR exon 20 insertion — disease progression on first-line platinum-based chemotherapy.
+2. Indeterminate brain lesion — too small for definitive characterization. Not amenable to biopsy. Will monitor.
+3. ECOG 1, adequate organ function.
+
+Plan:
+1. Refer to clinical trials for EGFR exon 20-targeted therapy.
+2. Screen for LU-021 trial eligibility (Phase 2 mobocertinib successor).
+3. CNS finding requires discussion with PI before enrollment — does not clearly meet 'active CNS metastasis' exclusion but cannot be ruled out.
+4. Follow-up MRI brain in 6 weeks.
+5. Continue supportive medications.

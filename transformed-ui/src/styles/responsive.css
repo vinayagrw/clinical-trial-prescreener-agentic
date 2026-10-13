@@ -1,0 +1,35 @@
+/* Standard (1024-1439px) */
+@media (max-width: 1439px) {
+  .task-board { gap: var(--space-3); }
+  .task-lane { min-width: 260px; }
+  .metric-heroes { gap: var(--space-3); }
+  .why-now-banner { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Tablet (768-1023px) */
+@media (max-width: 1023px) {
+  .task-board { grid-template-columns: repeat(2, minmax(280px, 1fr)); }
+  .deep-review__split { grid-template-columns: 1fr; }
+  .evidence-panel { position: static; max-height: none; }
+  .insights__charts { grid-template-columns: 1fr; }
+  .trial-config { grid-template-columns: 1fr; }
+  .audit-trace__split { grid-template-columns: 1fr; }
+  .metric-heroes { grid-template-columns: repeat(2, 1fr); }
+  .command-bar__search { width: 240px; }
+  .collapsible-header__full { grid-template-columns: 1fr; }
+  .why-now-banner { grid-template-columns: 1fr; }
+  .ask-agent { grid-template-columns: 1fr; }
+  .ask-agent__sidebar { display: none; }
+  :root { --side-panel-w: 100vw; }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+  .task-board { grid-template-columns: 1fr; }
+  .command-bar { padding: 0 var(--space-3); }
+  .command-bar__breadcrumbs { display: none; }
+  .command-bar__search { width: 100%; }
+  .metric-heroes { grid-template-columns: 1fr 1fr; }
+  .page-body { padding: var(--space-3); }
+  .patient-nav { bottom: var(--space-3); right: var(--space-3); }
+}

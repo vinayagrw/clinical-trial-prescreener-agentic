@@ -1,0 +1,94 @@
+@keyframes accordion-open {
+  from { max-height: 0; opacity: 0; transform: translateY(-4px); }
+  to { max-height: 800px; opacity: 1; transform: translateY(0); }
+}
+
+@keyframes accordion-close {
+  from { max-height: 800px; opacity: 1; }
+  to { max-height: 0; opacity: 0; }
+}
+
+@keyframes card-lift {
+  from { transform: translateY(0); box-shadow: var(--shadow-sm); }
+  to { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-out-right {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes stagger-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 currentColor; opacity: 0.5; }
+  100% { box-shadow: 0 0 0 8px currentColor; opacity: 0; }
+}
+
+@keyframes ring-fill {
+  from { stroke-dashoffset: var(--ring-circumference); }
+  to { stroke-dashoffset: var(--ring-target); }
+}
+
+@keyframes backdrop-in {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(8px); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-swap {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes card-move {
+  0% { transform: scale(1.02); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes sparkline-draw {
+  from { stroke-dashoffset: var(--sparkline-length); }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-4px); }
+}
+
+@keyframes evidence-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(90, 196, 203, 0.5); background-color: var(--teal-50); }
+  60%  { box-shadow: 0 0 0 6px rgba(90, 196, 203, 0); background-color: var(--teal-50); }
+  100% { box-shadow: 0 0 0 0 rgba(90, 196, 203, 0); background-color: transparent; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

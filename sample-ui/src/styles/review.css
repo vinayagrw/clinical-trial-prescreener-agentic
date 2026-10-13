@@ -1,0 +1,170 @@
+.human-review-panel,
+.human-review-queue,
+.human-review-queue__detail,
+.human-review-queue__list,
+.human-review-panel__flags,
+.human-review-panel__compare,
+.human-review-panel__details-grid,
+.human-review-panel__audit,
+.human-review-panel__actions {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.human-review-panel {
+  margin-top: var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--teal) 22%, var(--color-border-subtle));
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--teal) 8%, var(--color-bg-panel)) 0%, var(--color-bg-panel) 100%);
+}
+
+.human-review-panel--compact {
+  margin-top: var(--space-3);
+}
+
+.human-review-panel__header,
+.human-review-queue__header,
+.human-review-panel__column-head,
+.human-review-queue__item-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.human-review-panel__meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.human-review-panel__meta div,
+.human-review-queue__item,
+.human-review-panel__audit-event,
+.human-review-panel__citation {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-panel-strong);
+}
+
+.human-review-panel__meta div {
+  padding: var(--space-3);
+}
+
+.human-review-panel__compare,
+.human-review-panel__details-grid,
+.human-review-queue__layout {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.human-review-panel__column,
+.human-review-panel__editor-block,
+.human-review-panel__citations {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.human-review-panel pre,
+.human-review-panel__audit-event pre {
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--slate) 10%, var(--color-bg-panel));
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.human-review-panel__editor {
+  width: 100%;
+  min-height: 120px;
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+.human-review-panel__details {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: var(--space-3);
+}
+
+.human-review-panel__details > summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.human-review-panel__citation {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+
+.human-review-panel__citation span,
+.human-review-panel__citation small {
+  display: block;
+}
+
+.human-review-panel__citation em {
+  display: block;
+  margin-top: var(--space-1);
+  color: var(--color-fg-secondary);
+}
+
+.human-review-panel__rationale {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.human-review-panel__actions {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.human-review-queue__filters {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.human-review-queue__filters .topbar-search,
+.human-review-queue__filters select {
+  min-width: 220px;
+}
+
+.human-review-queue__list {
+  align-content: start;
+}
+
+.human-review-queue__item {
+  display: grid;
+  gap: var(--space-2);
+  text-align: left;
+  padding: var(--space-4);
+  cursor: pointer;
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease-out),
+    border-color var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.human-review-queue__item:hover,
+.human-review-queue__item--active {
+  transform: translateY(-1px);
+  border-color: var(--color-accent);
+}
+
+.human-review-queue__item p,
+.human-review-queue__item small {
+  margin: 0;
+}
+
+.human-review-panel__audit-event {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+@media (max-width: 1120px) {
+  .human-review-panel__meta,
+  .human-review-panel__compare,
+  .human-review-panel__details-grid,
+  .human-review-queue__layout {
+    grid-template-columns: 1fr;
+  }
+}

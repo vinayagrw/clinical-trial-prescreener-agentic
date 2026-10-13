@@ -1,0 +1,228 @@
+.handoff-surface {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.metric-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.button-secondary,
+.button-toggle {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-panel);
+  color: var(--color-fg-primary);
+  font: inherit;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease-out),
+    border-color var(--motion-duration-fast) var(--motion-ease-out),
+    background var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.button-secondary:hover,
+.button-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-accent);
+}
+
+.button-secondary:disabled,
+.button-toggle:disabled {
+  opacity: 0.55;
+  cursor: wait;
+  transform: none;
+}
+
+.button-toggle--active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-fg-onDark);
+}
+
+.window-toggle {
+  display: inline-flex;
+  gap: var(--space-2);
+  padding-right: var(--space-2);
+}
+
+.handoff-worklist {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.handoff-worklist__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) 180px minmax(0, 1fr) 120px;
+  gap: var(--space-4);
+  align-items: center;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-panel-strong);
+  padding: var(--space-4);
+}
+
+.handoff-worklist__title {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.handoff-worklist__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.handoff-worklist__stats div {
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-panel);
+}
+
+.handoff-worklist__stats strong {
+  display: block;
+  font-size: 1.2rem;
+}
+
+.handoff-worklist__stats span,
+.handoff-worklist__meta,
+.document-card__hash {
+  color: var(--color-fg-secondary);
+  font-size: var(--text-small);
+}
+
+.handoff-worklist__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.handoff-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.9fr);
+  gap: var(--space-5);
+}
+
+.handoff-grid__main,
+.handoff-grid__side,
+.sbar-grid,
+.sbar-bullets,
+.missing-info-list,
+.provenance-stack,
+.document-feed,
+.audit-trace,
+.disagreement-stack,
+.disagreement-positions {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.sbar-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sbar-bullet {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel-strong);
+  padding: var(--space-4);
+}
+
+.sbar-bullet__citations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.citation-chip {
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  padding: 6px 10px;
+  font-size: var(--text-small);
+  text-decoration: none;
+}
+
+.citation-chip:hover {
+  text-decoration: underline;
+}
+
+.alert-card--info {
+  border-color: rgba(15, 92, 98, 0.18);
+  background: rgba(15, 92, 98, 0.08);
+}
+
+.disagreement-card,
+.provenance-card,
+.document-card,
+.audit-trace__event {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-panel-strong);
+  padding: var(--space-4);
+}
+
+.disagreement-card__header,
+.provenance-card__header,
+.document-card__header,
+.audit-trace__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.disagreement-position {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-panel);
+}
+
+.provenance-card blockquote {
+  margin: var(--space-3) 0;
+  padding: var(--space-3);
+  border-left: 3px solid var(--color-accent);
+  background: rgba(15, 92, 98, 0.06);
+}
+
+.audit-trace__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  color: var(--color-fg-secondary);
+  font-size: var(--text-small);
+}
+
+@media (max-width: 1120px) {
+  .handoff-grid,
+  .sbar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .handoff-worklist__row {
+    grid-template-columns: 1fr;
+  }
+
+  .handoff-worklist__actions {
+    justify-content: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .window-toggle {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .window-toggle .button-toggle {
+    flex: 1 1 auto;
+  }
+
+  .handoff-worklist__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

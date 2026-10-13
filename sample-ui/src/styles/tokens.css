@@ -1,0 +1,204 @@
+/*
+ * Design tokens — single source of truth for colors, space, type, motion, elevation.
+ * Consumed via CSS custom properties. Themes (themes.css) override these for dark / HC.
+ *
+ * Token naming:
+ *   --color-*   semantic color slot
+ *   --space-*   spacing scale (4px base)
+ *   --radius-*  corner radius scale
+ *   --font-*    typography
+ *   --shadow-*  elevation
+ *   --z-*       z-index layers
+ */
+
+:root {
+  /* --- Palette (raw) --- */
+  --paper: #f6f1e8;
+  --panel: #fffaf3;
+  --panel-strong: #f4ede1;
+  --ink: #16242c;
+  --slate: #506067;
+  --teal: #0f5c62;
+  --teal-soft: #d7ebe8;
+  --moss: #5c7b4f;
+  --moss-soft: #e3ecdf;
+  --amber: #c88b28;
+  --amber-soft: #faedd3;
+  --brick: #ad4d41;
+  --brick-soft: #f7e0dc;
+  --line: #d9d0c3;
+
+  /* --- Semantic color slots (default = light theme) --- */
+  --color-bg-base: var(--paper);
+  --color-bg-panel: var(--panel);
+  --color-bg-panel-strong: var(--panel-strong);
+  /* Raised = surface that floats above the page (dialogs, popovers, menus). */
+  --color-bg-raised: var(--panel);
+  /* Subtle = faint tint over the base, used for hover + hint chips + command input. */
+  --color-bg-subtle: rgba(15, 92, 98, 0.08);
+  --color-fg-primary: var(--ink);
+  --color-fg-secondary: var(--slate);
+  --color-fg-muted: rgba(22, 36, 44, 0.5);
+  --color-fg-onDark: #fffaf3;
+  --color-border-subtle: var(--line);
+  --color-accent: var(--teal);
+  --color-accent-soft: var(--teal-soft);
+  --color-success: var(--moss);
+  --color-success-soft: var(--moss-soft);
+  --color-warning: var(--amber);
+  --color-warning-soft: var(--amber-soft);
+  --color-danger: var(--brick);
+  --color-danger-soft: var(--brick-soft);
+
+  /* --- Focus ring (a11y M4) --- */
+  --color-focus-ring: #ffb000;
+  --focus-ring-offset: 3px;
+  --focus-ring-width: 2px;
+  /* Accent ring — used by widget interactives so the focus state matches the
+   * teal accent instead of the global amber. Paired with a 2px teal outline
+   * + 3px offset in the warm-paper background. */
+  --color-accent-ring: rgba(15, 92, 98, 0.55);
+  --color-accent-ring-soft: rgba(15, 92, 98, 0.18);
+
+  /* --- Elevation --- */
+  --shadow: 0 18px 42px rgba(22, 36, 44, 0.1);
+  /* xs = ambient card lift inside a panel that already has a shadow. */
+  --shadow-xs: 0 1px 2px rgba(22, 36, 44, 0.05);
+  --shadow-sm: 0 4px 12px rgba(22, 36, 44, 0.08);
+  --shadow-md: 0 10px 24px rgba(22, 36, 44, 0.12);
+  --shadow-lg: 0 24px 64px rgba(22, 36, 44, 0.18);
+  /* Layered soft drop — replaces single blunt shadows on floating surfaces.
+   * Two-layer stack (tight ambient + diffuse drop) reads as "floating" vs
+   * "glued." Applied on the widget panel + bubble. */
+  --shadow-layered:
+    0 1px 2px rgba(22, 36, 44, 0.04),
+    0 2px 6px rgba(22, 36, 44, 0.06),
+    0 24px 48px rgba(22, 36, 44, 0.14);
+  --shadow-layered-hover:
+    0 1px 2px rgba(22, 36, 44, 0.08),
+    0 4px 12px rgba(22, 36, 44, 0.10),
+    0 24px 48px rgba(22, 36, 44, 0.18);
+  /* Named elevation aliases for primitives — lets themes retune without touching sites. */
+  --elevation-dialog: var(--shadow-lg);
+  --elevation-popover: var(--shadow-md);
+  --elevation-tooltip: 0 4px 12px rgba(22, 36, 44, 0.3);
+
+  /* --- Radius --- */
+  --radius-xl: 24px;
+  --radius-lg: 22px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+
+  /* --- Spacing scale (4px base) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* --- Layout --- */
+  /*
+   * Content width ceiling — .app-main stops stretching beyond this, so prose
+   * and grids stay readable on ultrawide displays. Below this width the
+   * content block fills the available space; above it, auto margins center
+   * the block. Wave D.1 addition.
+   */
+  --content-max: 1680px;
+
+  /* --- Typography --- */
+  --font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-serif: "Source Serif 4", "Georgia", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* --- Typography scale --- */
+  --text-display: 28px; /* hero numbers */
+  --text-h2: 22px;      /* panel titles, e.g. widget "Ask Agent" */
+  --text-h3: 17px;      /* section titles, e.g. "Contextual suggestions" */
+  --text-h4: 14.5px;    /* card titles, inline labels */
+  --text-body: 14.5px;  /* summary, bullet list, thread entries */
+  --text-small: 12.5px; /* chips, breadcrumbs, meta */
+  --text-micro: 11px;   /* uppercase eyebrows */
+
+  /* Weights — semantic rather than numeric at call sites. */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Leadings — choose by content, not by element. */
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Trackings — tight for display serifs, wide for uppercase captions. */
+  --tracking-tight: -0.018em;
+  --tracking-normal: 0;
+  --tracking-caps: 0.09em;
+
+  /* --- Z-index layers --- */
+  --z-nav: 10;
+  --z-popover: 40;
+  --z-dialog-overlay: 49;
+  --z-dialog: 50;
+  --z-widget: 60;
+  --z-tooltip: 65;
+  --z-widget-expanded: 70;
+  --z-toast: 80;
+
+  /* --- Motion (tokens; animations declared in motion.css) --- */
+  --motion-duration-fast: 120ms;
+  --motion-duration-base: 180ms;
+  --motion-duration-slow: 280ms;
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* --- Visualization palette (Section 16 viz uplift) ---
+   * Seven qualitative series, five-step ordinal ramp, four status colors,
+   * axis/grid/text slots, and a motion token. Themes override these in themes.css.
+   * Principle: color is redundant with shape/position; never the only channel.
+   */
+  --viz-series-1: #0f5c62;   /* teal — primary series */
+  --viz-series-2: #c88b28;   /* amber */
+  --viz-series-3: #5c7b4f;   /* moss */
+  --viz-series-4: #ad4d41;   /* brick */
+  --viz-series-5: #2d5578;   /* steel */
+  --viz-series-6: #7a4474;   /* plum */
+  --viz-series-7: #4a6158;   /* slate-green */
+
+  /* Ordinal ramp for heatmaps — sequential, low → high */
+  --viz-ramp-0: #faf5ea;
+  --viz-ramp-1: #f0e3c7;
+  --viz-ramp-2: #e5c48e;
+  --viz-ramp-3: #d09855;
+  --viz-ramp-4: #a85e2d;
+  --viz-ramp-5: #6b2f13;
+
+  /* Status colors — match StatusChip tones for consistency */
+  --viz-status-pass: #5c7b4f;
+  --viz-status-fail: #ad4d41;
+  --viz-status-uncertain: #c88b28;
+  --viz-status-manual: #506067;
+
+  /* Chrome */
+  --viz-grid: rgba(22, 36, 44, 0.08);
+  --viz-axis: rgba(22, 36, 44, 0.35);
+  --viz-text: var(--color-fg-secondary);
+  --viz-text-strong: var(--color-fg-primary);
+  --viz-bg: transparent;
+  --viz-datum-ring: rgba(22, 36, 44, 0.18);
+
+  /* Motion — respected by all viz (0ms when reduced-motion is on) */
+  --viz-motion-duration: var(--motion-duration-base);
+  --viz-motion-ease: var(--motion-ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --viz-motion-duration: 0ms;
+  }
+}

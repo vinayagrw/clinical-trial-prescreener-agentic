@@ -1,0 +1,129 @@
+:root {
+  /* === Color Palette (Light Theme) === */
+  --bg-primary: #f8f4ee;
+  --bg-secondary: #fffaf3;
+  --bg-elevated: rgba(255, 250, 243, 0.92);
+  --bg-glass: rgba(255, 253, 249, 0.72);
+  --bg-glass-border: rgba(217, 208, 195, 0.45);
+  --bg-input: #ffffff;
+
+  --ink: #16242c;
+  --ink-secondary: #506067;
+  --ink-muted: #7a8a91;
+  --ink-inverse: #f8f4ee;
+
+  --teal-600: #0a4a4f;
+  --teal-500: #0f5c62;
+  --teal-400: #1a7a82;
+  --teal-300: #3ba8b0;
+  --teal-100: #d7ebe8;
+  --teal-50: #edf6f5;
+
+  --moss-500: #5c7b4f;
+  --moss-400: #74996a;
+  --moss-100: #e3ecdf;
+  --moss-50: #f0f6ed;
+
+  --amber-500: #c88b28;
+  --amber-400: #daa234;
+  --amber-100: #faedd3;
+  --amber-50: #fef8ed;
+
+  --brick-500: #ad4d41;
+  --brick-400: #c4645a;
+  --brick-100: #f7e0dc;
+  --brick-50: #fdf3f1;
+
+  --slate-500: #506067;
+  --slate-400: #6b7a82;
+  --slate-300: #a0adb3;
+  --slate-200: #c4cdd2;
+  --slate-100: #d9d0c3;
+
+  /* === Spacing (8px base grid) === */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* === Typography === */
+  --font-sans: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+
+  --text-hero: 48px;
+  --text-h1: 28px;
+  --text-h2: 22px;
+  --text-h3: 17px;
+  --text-h4: 15px;
+  --text-body: 14px;
+  --text-small: 12.5px;
+  --text-micro: 11px;
+  --text-nano: 10px;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-caps: 0.1em;
+
+  /* === Radii === */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* === Shadows === */
+  --shadow-xs: 0 1px 2px rgba(22, 36, 44, 0.04);
+  --shadow-sm: 0 1px 3px rgba(22, 36, 44, 0.06), 0 1px 2px rgba(22, 36, 44, 0.04);
+  --shadow-md: 0 4px 12px rgba(22, 36, 44, 0.08);
+  --shadow-lg: 0 12px 32px rgba(22, 36, 44, 0.1);
+  --shadow-xl: 0 20px 48px rgba(22, 36, 44, 0.12);
+  --shadow-glow-teal: 0 0 0 3px rgba(15, 92, 98, 0.18);
+  --shadow-focus: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--teal-400);
+
+  /* === Glassmorphism === */
+  --glass-blur: 16px;
+  --glass-bg: rgba(255, 250, 243, 0.72);
+  --glass-border: 1px solid rgba(217, 208, 195, 0.45);
+
+  /* === Transitions === */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+
+  /* === Z-index scale === */
+  --z-base: 0;
+  --z-card: 1;
+  --z-sticky: 10;
+  --z-command-bar: 100;
+  --z-side-panel: 200;
+  --z-command-palette: 500;
+  --z-tooltip: 600;
+  --z-overlay: 900;
+
+  /* === Layout === */
+  --command-bar-h: 56px;
+  --side-panel-w: 520px;
+  --agent-sidebar-w: 280px;
+}

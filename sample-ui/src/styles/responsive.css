@@ -1,0 +1,20 @@
+/*
+ * Responsive breakpoints.
+ *
+ * NOTE (M1): The existing component stylesheet (../styles.css) still owns the
+ * @media blocks at lines 1400-1486 (1260px + 780px). This file is the future
+ * home for net-new mobile/tablet/portal rules added in M2-M4. For now it's
+ * a thin layer that only adds rules not present in the legacy stylesheet.
+ *
+ * Breakpoints:
+ *   sm  < 780px   (patient portal mobile, minimal coordinator read-only)
+ *   md  780-1259  (tablet coordinator, collapsed grids — handled in legacy styles.css)
+ *   lg  >= 1260   (desktop coordinator full, default — handled in legacy styles.css)
+ */
+
+/* Portal mobile tweaks (not yet wired; M3). */
+@media (max-width: 780px) {
+  html.theme-portal body {
+    padding-inline: var(--space-4);
+  }
+}
